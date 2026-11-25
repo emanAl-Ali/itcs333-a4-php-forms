@@ -71,12 +71,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <h1>Contact Us</h1>
   <!-- TODO: render the form, inline errors, and repopulated values -->
-  <form method="post" action="index.php">
-    <label>Name <input type="text" name="name" value="<?= e($values['name']) ?>"></label><br>
-    <label>Email <input type="email" name="email" value="<?= e($values['email']) ?>"></label><br>
-    <label>Message <textarea name="message"><?= e($values['message']) ?></textarea></label><br>
+  <form method="post" action="index.php" novalidate>
+    <label>Name <input type="text" name="name" value="<?= e($values['name']) ?>"></label>
+    <?php if (isset($errors['name'])): ?><span><?= e($errors['name']) ?></span><?php endif; ?>
+    <br>
+    <label>Email <input type="email" name="email" value="<?= e($values['email']) ?>"></label>
+    <?php if (isset($errors['email'])): ?><span><?= e($errors['email']) ?></span><?php endif; ?>
+    <br>
+    <label>Message <textarea name="message"><?= e($values['message']) ?></textarea></label>
+    <?php if (isset($errors['message'])): ?><span><?= e($errors['message']) ?></span><?php endif; ?>
+    <br>
     <button type="submit">Send</button>
   </form>
 </body>
 </html>
-    
