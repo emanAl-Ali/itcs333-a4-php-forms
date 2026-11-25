@@ -25,5 +25,5 @@ function validate_length(string $v, int $min, int $max): bool
     // TODO: return true when mb_strlen($v) is within [$min, $max]
    // return false;
            $len = mb_strlen($v);
-    return $len >= $min && $len <= $max;
+    return $len >= $min && $len <= $max;    
 }
